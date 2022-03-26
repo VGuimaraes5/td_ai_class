@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
-    public float speed = 100.0f;
+    public float speed = 5.0f;
+    public GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
@@ -12,10 +13,17 @@ public class Canon : MonoBehaviour
         
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            Instantiate(bullet, transform.position, transform.rotation);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-
         transform.Rotate(0.0f, 0.0f, -Input.GetAxis ("Horizontal") * speed);
     }
 }
