@@ -399,7 +399,7 @@ MonoBehaviour:
   - {fileID: 2474538957652266939, guid: a5e034a5a17adb240be6907d8fec7c41, type: 3}
   - {fileID: 1083046564209089612, guid: 86da80da52baea44c9c92428d58db34f, type: 3}
   radio: 20
-  spawnDelay: 1
+  spawnDelay: 2
 --- !u!4 &1132509324
 Transform:
   m_ObjectHideFlags: 0
@@ -425,9 +425,11 @@ GameObject:
   - component: {fileID: 2063784317}
   - component: {fileID: 2063784316}
   - component: {fileID: 2063784315}
+  - component: {fileID: 2063784318}
+  - component: {fileID: 2063784319}
   m_Layer: 0
   m_Name: Canon
-  m_TagString: Untagged
+  m_TagString: canon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   bullet: {fileID: 2535132299083965118, guid: eae5f600cec07984fa3fb1a9c3bbafe2, type: 3}
+  healthPoints: 10
 --- !u!212 &2063784316
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -511,3 +514,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2063784318
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063784314}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.14, y: 1.78}
+  m_Direction: 0
+--- !u!50 &2063784319
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063784314}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
