@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
 
     private float angle;
 
-    // Start is called before the first frame update
     void Start()
     {
         angle = Mathf.Atan2(transform.position.y, transform.position.x);
@@ -19,7 +18,6 @@ public class Enemy : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Move();
@@ -27,9 +25,6 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        float multiplierX = transform.position.x < 0 ? -1.0f : 1.0f;
-        float multiplierY = transform.position.y < 0 ? -1.0f : 1.0f;
-
         transform.Translate(
            new Vector3(
                Mathf.Cos(angle) * speed * Time.fixedDeltaTime * -1.0f,
@@ -37,5 +32,28 @@ public class Enemy : MonoBehaviour
                0.0f
            )
        );
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "bullet":
+                TakeDamage();
+                break;
+            case "canon":
+                Destroy(this.gameObject);
+                break;
+        }
+    }
+
+    private void TakeDamage()
+    {
+        hp -= 1.0f;
+
+        if (hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
